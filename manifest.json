@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "Password Revealer",
+    "description": "Toggle passwords in dev mode. Enhance development workflow with password visibility.",
+    "version": "1.0",
+    "permissions": ["activeTab", "storage"],
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "icons": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    },
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": ["content.js", "options.js"]
+        }
+    ],
+    "options_page": "options.html",
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
